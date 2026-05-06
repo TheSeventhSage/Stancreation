@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stan Creation — Visual Designer & Brand Architect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="preloader-inner">
+            <img src="logo.jpg" alt="Stan Creation Logo" class="preloader-logo">
+            <div class="preloader-glow"></div>
+        </div>
+    </div>
+
+    <!-- CURSOR -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- NAV -->
+    <nav id="nav">
+        <a href="#" class="nav-logo">STAN CREATION</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#connect">Connect</a></li>
+            <li><a href="#cta">Hire</a></li>
+        </ul>
+        <div class="nav-right">
+            <button class="nav-cta"
+                onclick="scrollTo({top: document.getElementById('cta').offsetTop, behavior:'smooth'})">Start a
+                Project</button>
+            <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-scrim" id="mobileScrim"></div>
+        <div class="mobile-menu-panel">
+            <button class="mobile-menu-close" id="mobileClose">✕</button>
+            <nav class="mobile-nav-links">
+                <a href="#projects">Work</a>
+                <a href="#about">About</a>
+                <a href="#connect">Connect</a>
+                <a href="#cta">Hire</a>
+            </nav>
+            <div class="mobile-nav-bottom">
+                <div class="mobile-nav-contact">
+                    <span>+234 818 414 0664</span>
+                    <span>@stancreation</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section id="hero">
+        <!-- Background image slideshow -->
+        <div class="hero-bg-slider" id="heroBgSlider">
+            <div class="hero-bg-slide active" style="background-image:url('img/c41bc70498dd9acabdbf0ec89d613bbd.jpg')">
+            </div>
+            <div class="hero-bg-slide" style="background-image:url('img/download.jfif')">
+            </div>
+            <div class="hero-bg-slide" style="background-image:url('img/Charity\ Flyer\ Bundle\ Templates.jfif')">
+            </div>
+            <div class="hero-bg-slide" style="background-image:url('img/jobs\ two.jpg')">
+            </div>
+        </div>
+        <!-- Dark overlay -->
+        <div class="hero-overlay"></div>
+        <!-- Noise texture -->
+        <div class="hero-noise"></div>
+        <!-- Vignette -->
+        <div class="hero-vignette"></div>
+
+        <div class="hero-left">
+            <div class="hero-eyebrow">Visual Designer & Brand Architect</div>
+            <h1 class="hero-name">
+                <span>Stan</span>
+                <span><em>Creation</em></span>
+                <span>Studio.</span>
+            </h1>
+            <p class="hero-tagline">
+                Crafting brands that speak, visuals that move, and identities that endure.
+                From Lagos to the world — design with intention.
+            </p>
+            <div class="hero-actions">
+                <a href="#projects" class="btn-primary">View Work</a>
+                <a href="#connect" class="btn-outline">Get in Touch</a>
+            </div>
+        </div>
+
+        <div class="hero-right">
+            <div class="hero-stat">
+                <span class="hero-stat-num">50+</span>
+                <span class="hero-stat-label">Projects Delivered</span>
+            </div>
+            <div class="hero-stat">
+                <span class="hero-stat-num">4+</span>
+                <span class="hero-stat-label">Years Experience</span>
+            </div>
+            <div class="hero-stat">
+                <span class="hero-stat-num">∞</span>
+                <span class="hero-stat-label">Creative Drive</span>
+            </div>
+        </div>
+
+        <!-- Slide indicators -->
+        <div class="hero-slide-dots" id="heroSlideDots">
+            <span class="hero-dot active"></span>
+            <span class="hero-dot"></span>
+            <span class="hero-dot"></span>
+            <span class="hero-dot"></span>
+        </div>
+
+        <div class="hero-scroll">
+            <div class="scroll-line"></div>
+            <span class="scroll-label">Scroll</span>
+        </div>
+
+        <div class="hero-marquee">
+            <div class="marquee-track">
+                <span>Flyer Design</span><span class="dot">✦</span>
+                <span>Logo Design</span><span class="dot">✦</span>
+                <span>Web Design</span><span class="dot">✦</span>
+                <span>UI/UX Design</span><span class="dot">✦</span>
+                <span>Motion Graphics</span><span class="dot">✦</span>
+                <span>Printing</span><span class="dot">✦</span>
+                <span>Brand Identity</span><span class="dot">✦</span>
+                <span>Social Media Design</span><span class="dot">✦</span>
+                <span>Flyer Design</span><span class="dot">✦</span>
+                <span>Logo Design</span><span class="dot">✦</span>
+                <span>Web Design</span><span class="dot">✦</span>
+                <span>UI/UX Design</span><span class="dot">✦</span>
+                <span>Motion Graphics</span><span class="dot">✦</span>
+                <span>Printing</span><span class="dot">✦</span>
+                <span>Brand Identity</span><span class="dot">✦</span>
+                <span>Social Media Design</span><span class="dot">✦</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+        <div class="projects-header reveal">
+            <div>
+                <div class="section-label">Selected Work</div>
+                <h2 class="projects-title">Crafted with <em>Purpose,</em><br>Built to Inspire.</h2>
+            </div>
+            <div class="filter-bar" id="filterBar">
+                <button class="filter-btn active" data-filter="all">All Work</button>
+                <button class="filter-btn" data-filter="branding">Branding</button>
+                <button class="filter-btn" data-filter="poster">Poster Design</button>
+                <button class="filter-btn" data-filter="event">Event Promo</button>
+            </div>
+        </div>
+
+        <div class="masonry reveal reveal-delay-1" id="projectGrid">
+
+            <div class="project-card" data-cat="event" onclick="openModal('click-to-cash')">
+                <img src="img/c41bc70498dd9acabdbf0ec89d613bbd.jpg" alt="Photography Masterclass Poster">
+                <div class="project-overlay">
+                    <div class="project-cat">Event Promo · Flyer</div>
+                    <div class="project-title-card">Click to Cash — Photography Masterclass</div>
+                    <div class="project-arrow">→</div>
+                </div>
+            </div>
+
+            <div class="project-card" data-cat="branding" onclick="openModal('bon-classic')">
+                <img src="img/jobs two.jpg" alt="Bon Classic Interior Design">
+                <div class="project-overlay">
+                    <div class="project-cat">Branding · Social Media</div>
+                    <div class="project-title-card">Bon Classic Design — New Month Campaign</div>
+                    <div class="project-arrow">→</div>
+                </div>
+            </div>
+
+            <div class="project-card" data-cat="branding" onclick="openModal('design-jobs')">
+                <img src="img/Charity Flyer Bundle Templates.jfif" alt="Design Jobs Poster">
+                <div class="project-overlay">
+                    <div class="project-cat">Branding · Self Promo</div>
+                    <div class="project-title-card">Stan Creation — Design Services Campaign</div>
+                    <div class="project-arrow">→</div>
+                </div>
+            </div>
+
+            <div class="project-card" data-cat="poster" onclick="openModal('typography-brand')">
+                <img src="img/download.jfif" alt="Brand Identity">
+                <div class="project-overlay">
+                    <div class="project-cat">Poster Design · Typography</div>
+                    <div class="project-title-card">Editorial Typography Exploration</div>
+                    <div class="project-arrow">→</div>
+                </div>
+            </div>
+
+            <div class="project-card" data-cat="event" onclick="openModal('event-visual')">
+                <img src="img/New Month Poster May.jfif" alt="Event Branding">
+                <div class="project-overlay">
+                    <div class="project-cat">Event · Visual Identity</div>
+                    <div class="project-title-card">Corporate Event Visual Design System</div>
+                    <div class="project-arrow">→</div>
+                </div>
+            </div>
+
+            <div class="project-card" data-cat="branding" onclick="openModal('logo-suite')">
+                <img src="img/Shoe sales poster.jfif" alt="Logo Suite">
+                <div class="project-overlay">
+                    <div class="project-cat">Branding · Logo Design</div>
+                    <div class="project-title-card">Premium Brand Identity Suite</div>
+                    <div class="project-arrow">→</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="about-visual reveal">
+            <div class="about-frame">
+                <div class="about-frame-inner">
+                    <div class="section-label" style="margin-bottom:0.5rem;">Services Offered</div>
+                    <div class="about-services">
+                        <div class="service-pill">Flyers</div>
+                        <div class="service-pill">Logo Design</div>
+                        <div class="service-pill">Web Design</div>
+                        <div class="service-pill">UI/UX</div>
+                        <div class="service-pill">Motion</div>
+                        <div class="service-pill">Printing</div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-decorator"></div>
+        </div>
+
+        <div class="about-text reveal reveal-delay-2">
+            <div class="section-label">Who I Am</div>
+            <h2 class="about-heading">Design is my <em>language.</em><br>Your brand is my canvas.</h2>
+            <p class="about-p">
+                Stan Creation is a Lagos-based visual design studio built on one core belief: great design has the power
+                to transform how the world perceives your brand. We combine strategic thinking with visual artistry to
+                craft identities, campaigns, and digital experiences that resonate.
+            </p>
+            <p class="about-p">
+                Whether you need a standout event poster, a full brand identity, or a digital presence that commands
+                attention — we bring the same level of precision and passion to every pixel. Available for all design
+                types you need.
+            </p>
+            <div class="about-stats">
+                <div>
+                    <span class="about-stat-num">50+</span>
+                    <span class="about-stat-label">Happy Clients</span>
+                </div>
+                <div>
+                    <span class="about-stat-num">100+</span>
+                    <span class="about-stat-label">Designs Crafted</span>
+                </div>
+                <div>
+                    <span class="about-stat-num">4+</span>
+                    <span class="about-stat-label">Years Active</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONNECT / SOCIAL HUB -->
+    <section id="connect">
+        <div class="connect-header reveal">
+            <div class="section-label" style="justify-content:center;">Social Hub</div>
+            <h2 class="connect-title">Let's <em>Connect</em></h2>
+            <p class="connect-sub">Follow the creative journey, see behind the scenes, and reach out on any platform you
+                prefer.</p>
+        </div>
+
+        <div class="platform-grid reveal reveal-delay-1">
+            <div class="platform-tile" onclick="openProfile('instagram')">
+                <div class="platform-icon">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                    </svg>
+                </div>
+                <div class="platform-name">Instagram</div>
+                <div class="platform-handle">@stancreation</div>
+            </div>
+
+            <div class="platform-tile" onclick="openProfile('twitter')">
+                <div class="platform-icon">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                </div>
+                <div class="platform-name">Twitter / X</div>
+                <div class="platform-handle">@stancreation</div>
+            </div>
+
+            <div class="platform-tile" onclick="openProfile('behance')">
+                <div class="platform-icon">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H15.97c.13 3.211 3.483 3.312 4.588 2.029H23.726zm-7.726-3h3.988c-.126-1.publish-2.764-3.988 0-3.988 1.98 0 3.988.792 3.988 3h-7.976zm-7 3h-7.6v-14h7.6c3.033 0 4.5 1.667 4.5 3.5 0 1.25-.595 2.35-1.594 2.95 1.494.543 2.594 1.888 2.594 3.55 0 2.476-1.967 4-5 4zm-5.5-8.5h4.5c1.155 0 1.75-.603 1.75-1.5 0-.898-.595-1.5-1.75-1.5h-4.5v3zm0 6.5h5c1.214 0 1.947-.637 1.947-1.75 0-1.114-.733-1.75-1.947-1.75h-5v3.5z" />
+                    </svg>
+                </div>
+                <div class="platform-name">Behance</div>
+                <div class="platform-handle">StanCreation</div>
+            </div>
+
+            <div class="platform-tile" onclick="openProfile('whatsapp')">
+                <div class="platform-icon">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                </div>
+                <div class="platform-name">WhatsApp</div>
+                <div class="platform-handle">+234 818 414 0664</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta">
+        <div class="cta-bg"></div>
+        <div class="section-label reveal" style="justify-content:center;">Ready to Begin?</div>
+        <h2 class="cta-title reveal reveal-delay-1">Let's Build<br><em>Something Bold.</em></h2>
+        <p class="cta-sub reveal reveal-delay-2">Have a project in mind? Let's craft something that stands out, stays
+            memorable, and drives results.</p>
+        <div class="cta-actions reveal reveal-delay-3">
+            <a href="tel:+2348184140664" class="btn-primary">Call: +234 818 414 0664</a>
+            <a href="https://wa.me/2348184140664" target="_blank" class="btn-outline">Message on WhatsApp</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo">STAN CREATION</div>
+        <ul class="footer-links">
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#connect">Instagram</a></li>
+            <li><a href="#connect">Twitter</a></li>
+            <li><a href="#connect">Behance</a></li>
+        </ul>
+        <div class="footer-copy">© 2025 Stan Creation. All rights reserved.</div>
+    </footer>
+
+    <!-- PROJECT MODAL — IMAGE SLIDER -->
+    <div class="modal-backdrop" id="projectModal">
+        <button class="modal-close" onclick="closeModal()">✕ Close</button>
+
+        <!-- Slide counter -->
+        <div class="modal-counter">
+            <span id="modalSlideNum">1</span>
+            <span class="modal-counter-sep">/</span>
+            <span id="modalSlideTotal">6</span>
+        </div>
+
+        <!-- Image slider -->
+        <div class="modal-slider" id="modalSlider">
+            <!-- slides injected by JS -->
+        </div>
+
+        <!-- Nav arrows -->
+        <button class="modal-arrow modal-arrow-prev" id="modalPrev" onclick="slideModal(-1)">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path d="M15 18l-6-6 6-6" />
+            </svg>
+        </button>
+        <button class="modal-arrow modal-arrow-next" id="modalNext" onclick="slideModal(1)">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path d="M9 18l6-6-6-6" />
+            </svg>
+        </button>
+
+        <!-- Dot track -->
+        <div class="modal-dots" id="modalDots"></div>
+    </div>
+
+    <!-- PROFILE VIEWER -->
+    <div class="profile-overlay" id="profileOverlay">
+        <div class="profile-scrim" onclick="closeProfile()"></div>
+        <div class="profile-panel">
+            <button class="profile-close-btn" onclick="closeProfile()">✕</button>
+            <div class="profile-platform-badge" id="profilePlatform"></div>
+            <div class="profile-avatar">SC</div>
+            <div class="profile-username">Stan Creation</div>
+            <div class="profile-handle-text" id="profileHandle"></div>
+            <p class="profile-bio">Visual Designer & Brand Architect based in Lagos, Nigeria. Flyers · Logos · Web ·
+                UI/UX · Motion · Printing.</p>
+            <div class="profile-stats">
+                <div class="profile-stat-item">
+                    <span class="profile-stat-n" id="pStatA">—</span>
+                    <span class="profile-stat-l" id="pLabelA">Posts</span>
+                </div>
+                <div class="profile-stat-item">
+                    <span class="profile-stat-n" id="pStatB">—</span>
+                    <span class="profile-stat-l" id="pLabelB">Followers</span>
+                </div>
+                <div class="profile-stat-item">
+                    <span class="profile-stat-n" id="pStatC">—</span>
+                    <span class="profile-stat-l" id="pLabelC">Following</span>
+                </div>
+            </div>
+            <a class="profile-cta" id="profileLink" href="#" target="_blank">Visit Profile →</a>
+        </div>
+    </div>
+
+    <script>
+        /* ── PRELOADER CONTROL ── */
+        window.addEventListener("load", () => {
+            const loader = document.getElementById("preloader");
+
+            setTimeout(() => {
+                loader.classList.add("hidden");
+            }, 2600); // matches animation timing
+        });
+        /* ── CURSOR ── */
+        const cursor = document.getElementById('cursor');
+        const ring = document.getElementById('cursorRing');
+        let mx = 0, my = 0, rx = 0, ry = 0;
+        document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; });
+        (function animRing() { rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12; ring.style.left = Math.round(rx) + 'px'; ring.style.top = Math.round(ry) + 'px'; requestAnimationFrame(animRing); })();
+        document.querySelectorAll('a,button,.project-card,.platform-tile,.filter-btn').forEach(el => {
+            el.addEventListener('mouseenter', () => { cursor.classList.add('hover'); ring.classList.add('hover'); });
+            el.addEventListener('mouseleave', () => { cursor.classList.remove('hover'); ring.classList.remove('hover'); });
+        });
+
+        /* ── NAV SCROLL ── */
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 80); });
+
+        /* ── REVEAL ON SCROLL ── */
+        const revealEls = document.querySelectorAll('.reveal');
+        const io = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.12 });
+        revealEls.forEach(el => io.observe(el));
+
+        /* ── FILTER ── */
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                document.querySelectorAll('.project-card').forEach(card => {
+                    const show = filter === 'all' || card.dataset.cat === filter;
+                    card.style.opacity = show ? '1' : '0.2';
+                    card.style.pointerEvents = show ? 'all' : 'none';
+                    card.style.transition = 'opacity 0.4s';
+                });
+            });
+        });
+
+        /* ── PROJECT DATA (images only, no text) ── */
+        const allImages = [
+            'img/c41bc70498dd9acabdbf0ec89d613bbd.jpg',
+            'img/jobs two.jpg',
+            'img/Charity Flyer Bundle Templates.jfif',
+            'img/download.jfif',
+            'img/New Month Poster May.jfif',
+            'img/Shoe sales poster.jfif'
+        ];
+
+        const projectImageMap = {
+            'click-to-cash': 0,
+            'bon-classic': 1,
+            'design-jobs': 2,
+            'typography-brand': 3,
+            'event-visual': 4,
+            'logo-suite': 5,
+        };
+
+        let modalCurrentSlide = 0;
+
+        function buildModalSlider() {
+            const slider = document.getElementById('modalSlider');
+            const dots = document.getElementById('modalDots');
+            slider.innerHTML = '';
+            dots.innerHTML = '';
+            document.getElementById('modalSlideTotal').textContent = allImages.length;
+
+            allImages.forEach((src, i) => {
+                const slide = document.createElement('div');
+                slide.className = 'modal-slide' + (i === modalCurrentSlide ? ' active' : '');
+                slide.innerHTML = `<img src="${src}" alt="Project image ${i + 1}" loading="lazy">`;
+                slider.appendChild(slide);
+
+                const dot = document.createElement('span');
+                dot.className = 'modal-dot' + (i === modalCurrentSlide ? ' active' : '');
+                dot.onclick = () => goToSlide(i);
+                dots.appendChild(dot);
+            });
+        }
+
+        function goToSlide(index) {
+            const slides = document.querySelectorAll('.modal-slide');
+            const dots = document.querySelectorAll('.modal-dot');
+            slides[modalCurrentSlide].classList.remove('active');
+            dots[modalCurrentSlide].classList.remove('active');
+            modalCurrentSlide = (index + allImages.length) % allImages.length;
+            slides[modalCurrentSlide].classList.add('active');
+            dots[modalCurrentSlide].classList.add('active');
+            document.getElementById('modalSlideNum').textContent = modalCurrentSlide + 1;
+        }
+
+        function slideModal(dir) { goToSlide(modalCurrentSlide + dir); }
+
+        function openModal(id) {
+            modalCurrentSlide = projectImageMap[id] ?? 0;
+            buildModalSlider();
+            document.getElementById('modalSlideNum').textContent = modalCurrentSlide + 1;
+            document.getElementById('projectModal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal() {
+            document.getElementById('projectModal').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        /* ── MODAL KEYBOARD / SWIPE ── */
+        document.addEventListener('keydown', e => {
+            const modal = document.getElementById('projectModal');
+            if (modal.classList.contains('open')) {
+                if (e.key === 'ArrowRight') slideModal(1);
+                if (e.key === 'ArrowLeft') slideModal(-1);
+            }
+        });
+
+        // Touch swipe for modal
+        let touchStartX = 0;
+        document.getElementById('projectModal').addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
+        document.getElementById('projectModal').addEventListener('touchend', e => {
+            const diff = touchStartX - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 50) slideModal(diff > 0 ? 1 : -1);
+        });
+
+        /* ── PROFILE VIEWER ── */
+        const profileData = {
+            instagram: { platform: 'Instagram', handle: '@stancreation', link: 'https://instagram.com/stancreation', a: '120', b: '4.2K', c: '380', la: 'Posts', lb: 'Followers', lc: 'Following' },
+            twitter: { platform: 'Twitter / X', handle: '@stancreation', link: 'https://twitter.com/stancreation', a: '850', b: '1.8K', c: '210', la: 'Tweets', lb: 'Followers', lc: 'Following' },
+            behance: { platform: 'Behance', handle: 'StanCreation', link: 'https://behance.net/StanCreation', a: '45', b: '2.1K', c: '—', la: 'Projects', lb: 'Appreciations', lc: 'Following' },
+            whatsapp: { platform: 'WhatsApp Business', handle: '+234 818 414 0664', link: 'https://wa.me/2348184140664', a: '24/7', b: 'Available', c: 'Now', la: 'Response', lb: 'Status', lc: 'Online' },
+        };
+        function openProfile(key) {
+            const d = profileData[key]; if (!d) return;
+            document.getElementById('profilePlatform').textContent = d.platform;
+            document.getElementById('profileHandle').textContent = d.handle;
+            document.getElementById('profileLink').href = d.link;
+            document.getElementById('pStatA').textContent = d.a;
+            document.getElementById('pStatB').textContent = d.b;
+            document.getElementById('pStatC').textContent = d.c;
+            document.getElementById('pLabelA').textContent = d.la;
+            document.getElementById('pLabelB').textContent = d.lb;
+            document.getElementById('pLabelC').textContent = d.lc;
+            document.getElementById('profileOverlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeProfile() { document.getElementById('profileOverlay').classList.remove('open'); document.body.style.overflow = ''; }
+
+        /* ── ESC KEY ── */
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') { closeModal(); closeProfile(); }
+        });
+
+        /* ── MOBILE MENU ── */
+        const hamburger = document.getElementById('navHamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileClose = document.getElementById('mobileClose');
+        const mobileScrim = document.getElementById('mobileScrim');
+        function openMobileMenu() { mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; hamburger.classList.add('open'); }
+        function closeMobileMenu() { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; hamburger.classList.remove('open'); }
+        hamburger.addEventListener('click', openMobileMenu);
+        mobileClose.addEventListener('click', closeMobileMenu);
+        mobileScrim.addEventListener('click', closeMobileMenu);
+        document.querySelectorAll('.mobile-nav-links a').forEach(a => a.addEventListener('click', closeMobileMenu));
+
+        /* ── HERO BACKGROUND SLIDER ── */
+        let heroSlide = 0;
+        const heroSlides = document.querySelectorAll('.hero-bg-slide');
+        const heroDots = document.querySelectorAll('.hero-dot');
+        function nextHeroSlide() {
+            heroSlides[heroSlide].classList.remove('active');
+            heroDots[heroSlide].classList.remove('active');
+            heroSlide = (heroSlide + 1) % heroSlides.length;
+            heroSlides[heroSlide].classList.add('active');
+            heroDots[heroSlide].classList.add('active');
+        }
+        setInterval(nextHeroSlide, 5000);
+        heroDots.forEach((dot, i) => dot.addEventListener('click', () => {
+            heroSlides[heroSlide].classList.remove('active');
+            heroDots[heroSlide].classList.remove('active');
+            heroSlide = i;
+            heroSlides[i].classList.add('active');
+            heroDots[i].classList.add('active');
+        }));
+    </script>
+</body>
+
+</html>
