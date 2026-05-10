@@ -1794,7 +1794,7 @@ footer {
 @media (max-width: 600px) {
   nav {
     position: sticky;
-    top: 1;
+    /* top: ; */
   }
   .platform-grid {
     grid-template-columns: 1fr 1fr;
