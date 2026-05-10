@@ -1,16 +1,16 @@
 :root {
-  --gold: #c9a84c;
-  --gold-light: #e8c97a;
+  --gold: #e85d04; /* primary orange */
+  --gold-light: #f48c06; /* lighter orange hover */
   --cream: #f5f0e8;
-  --dark: #0d0d0b;
-  --dark-mid: #1a1a16;
-  --dark-surface: #242420;
-  --text-muted: #8a8a7a;
+  --dark: #000000; /* pure black */
+  --dark-mid: #0f0f0f;
+  --dark-surface: #1a1a1a;
+  --text-muted: #7a7a7a;
   --text-bright: #f5f0e8;
-  --accent-orange: #d4550a;
+  --accent-orange: #e85d04;
   --accent-green: #2a5c3f;
-  --serif: "Playfair Display", Georgia, serif;
-  --sans: "DM Sans", sans-serif;
+  --serif: "Sora", "DM Sans", sans-serif; /* Sora for all headings */
+  --sans: "Sora", "DM Sans", sans-serif;
   --mono: "Space Mono", monospace;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
@@ -415,27 +415,52 @@ nav.scrolled {
   animation-delay: 2.6s;
 }
 
-/* Background slider */
+/* Background slider — glass morph transition */
 .hero-bg-slider {
   position: absolute;
   inset: 0;
   z-index: 0;
 }
+
+/* Base: invisible, blurred, slightly zoomed */
 .hero-bg-slide {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: center;
   opacity: 0;
-  transform: scale(1.06);
+  transform: scale(1.08);
+  filter: blur(28px) brightness(0.6) saturate(0.7);
   transition:
-    opacity 1.4s var(--ease-in-out),
-    transform 8s linear;
-  will-change: opacity, transform;
+    opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 1.4s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform, filter;
 }
+
+/* Staged: about to enter — placed but still invisible */
+.hero-bg-slide.pre-enter {
+  opacity: 0;
+  transform: scale(1.08);
+  filter: blur(28px) brightness(0.6) saturate(0.7);
+}
+
+/* Active: fully revealed, sharp, natural scale */
 .hero-bg-slide.active {
   opacity: 1;
   transform: scale(1);
+  filter: blur(0px) brightness(1) saturate(1);
+}
+
+/* Leaving: shrink + blur out like dissolving glass */
+.hero-bg-slide.leaving {
+  opacity: 0;
+  transform: scale(0.96);
+  filter: blur(20px) brightness(1.1) saturate(1.3);
+  transition:
+    opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 1.4s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 1.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Layered overlays */
@@ -1056,22 +1081,34 @@ section {
 .about-frame {
   width: 100%;
   aspect-ratio: 3/4;
-  background: var(--dark-surface);
   position: relative;
   overflow: hidden;
+
+  /* background image fills the frame behind the SC watermark */
+  background-image: url("img/profile.jpg");
+  background-size: cover;
+  background-position: center;
 }
-.about-frame::before {
-  content: "SC";
+
+/* Dark overlay so the SC glyph and inner border stay visible */
+.about-frame::after {
+  content: "";
   position: absolute;
-  font-family: var(--serif);
-  font-size: 30vw;
-  font-weight: 900;
-  color: rgba(201, 168, 76, 0.04);
-  line-height: 1;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgb(0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.45) 60%,
+    rgba(0, 0, 0, 0.25) 100%
+  );
+  z-index: 0;
 }
+
+/* Lift the SC watermark and inner content above the overlay */
+.about-frame::before {
+  z-index: 1;
+}
+
 .about-frame-inner {
   position: absolute;
   inset: 2rem;
@@ -1080,6 +1117,7 @@ section {
   flex-direction: column;
   justify-content: flex-end;
   padding: 2rem;
+  z-index: 2; /* sits above the ::after overlay */
 }
 .about-services {
   display: grid;
@@ -1493,7 +1531,186 @@ footer {
   transition-delay: 0.3s;
 }
 
-/* ── RESPONSIVE ── */
+/* ── MOBILE PROJECT CAROUSEL ── */
+/* Hidden on desktop — shown only ≤ 900px via responsive block */
+.proj-carousel {
+  display: none;
+}
+
+.proj-stack {
+  position: relative;
+  width: 100%;
+  /* height is set by the top card's aspect ratio; stack cards are absolute */
+  height: 72vw;
+  max-height: 420px;
+  margin-bottom: 2rem;
+}
+
+/* All card states */
+.proj-crd {
+  position: absolute;
+  inset: 0;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  transform-origin: bottom center;
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity;
+  user-select: none;
+}
+.proj-crd img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+.proj-crd-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.2rem 1rem 1rem;
+  background: linear-gradient(
+    to top,
+    rgba(13, 13, 11, 0.92) 0%,
+    transparent 100%
+  );
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.proj-crd-cat {
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.proj-crd-title {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-bright);
+  line-height: 1.2;
+}
+
+/* TOP card — fully visible, front */
+.proj-crd.crd-top {
+  transform: translateY(0) scale(1) rotate(0deg);
+  opacity: 1;
+  z-index: 4;
+  filter: none;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(201, 168, 76, 0.12);
+}
+/* MID card — peeking behind, slightly down + scaled */
+.proj-crd.crd-mid {
+  transform: translateY(16px) scale(0.95) rotate(1.5deg);
+  opacity: 0.75;
+  z-index: 3;
+  filter: brightness(0.7) blur(1px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+/* BACK card — furthest visible peek */
+.proj-crd.crd-back {
+  transform: translateY(28px) scale(0.9) rotate(-1.5deg);
+  opacity: 0.45;
+  z-index: 2;
+  filter: brightness(0.5) blur(2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+/* EXITING — swept left and faded */
+.proj-crd.crd-exit {
+  transform: translateX(-110%) scale(0.9) rotate(-6deg);
+  opacity: 0;
+  z-index: 5; /* above others so exit is visible */
+  filter: blur(4px);
+  pointer-events: none;
+}
+/* HIDDEN — all others off screen */
+.proj-crd.crd-hidden {
+  transform: translateY(36px) scale(0.85);
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Controls row */
+.proj-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+.proj-btn {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  background: rgba(201, 168, 76, 0.04);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    background 0.3s,
+    border-color 0.3s;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+.proj-btn:active {
+  background: rgba(201, 168, 76, 0.15);
+  border-color: var(--gold);
+}
+.proj-counter {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-bright);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: 0.04em;
+}
+.proj-counter-sep {
+  color: rgba(201, 168, 76, 0.4);
+  font-weight: 300;
+}
+#projTotal {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-family: var(--mono);
+}
+
+/* Pip dots */
+.proj-pips {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+}
+.proj-pip {
+  display: block;
+  width: 16px;
+  height: 2px;
+  background: rgba(201, 168, 76, 0.2);
+  cursor: pointer;
+  transition:
+    background 0.3s,
+    width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  -webkit-tap-highlight-color: transparent;
+}
+.proj-pip.active {
+  background: var(--gold);
+  width: 32px;
+}
+
 @media (max-width: 900px) {
   #hero {
     grid-template-columns: 1fr;
@@ -1528,18 +1745,24 @@ footer {
     grid-template-columns: 1fr;
   }
   .masonry {
-    columns: 2;
+    display: none;
+  } /* hidden — carousel takes over */
+  .proj-carousel {
+    display: block;
+  } /* shown on mobile */
+  .projects-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
   }
+  .filter-bar {
+    display: none;
+  } /* hidden on mobile — carousel covers all */
   .platform-grid {
     grid-template-columns: repeat(2, 1fr);
   }
   nav {
     padding: 1.2rem 1.5rem;
-    position: sticky;
-    z-index: 100;
-    top: 0;
-    background: rgba(13, 13, 11, 0.6);
-    backdrop-filter: blur(12px);
   }
   nav .nav-links {
     display: none;
@@ -1567,19 +1790,11 @@ footer {
     right: 1.2rem;
     bottom: 5rem;
   }
-
-  .projects-header {
-    flex-direction: column;
-    gap: 22px;
-  }
-
-  #hero {
-    margin-top: -10px;
-  }
 }
 @media (max-width: 600px) {
-  .masonry {
-    columns: 1;
+  nav {
+    position: sticky;
+    top: 1;
   }
   .platform-grid {
     grid-template-columns: 1fr 1fr;
@@ -1594,5 +1809,8 @@ footer {
   .modal-arrow {
     width: 38px;
     height: 38px;
+  }
+  .proj-stack {
+    height: 80vw;
   }
 }

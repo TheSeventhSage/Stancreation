@@ -7,7 +7,7 @@
     <title>Stan Creation — Visual Designer & Brand Architect</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Mono:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Mono:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="index.css">
 </head>
@@ -167,8 +167,8 @@
             </div>
         </div>
 
+        <!-- DESKTOP: masonry grid -->
         <div class="masonry reveal reveal-delay-1" id="projectGrid">
-
             <div class="project-card" data-cat="event" onclick="openModal('click-to-cash')">
                 <img src="img/c41bc70498dd9acabdbf0ec89d613bbd.jpg" alt="Photography Masterclass Poster">
                 <div class="project-overlay">
@@ -224,6 +224,79 @@
             </div>
 
         </div>
+
+        <!-- MOBILE: stacked card carousel -->
+        <div class="proj-carousel" id="projCarousel" aria-label="Projects carousel">
+            <div class="proj-stack" id="projStack">
+                <div class="proj-crd" data-index="0" onclick="openModal('click-to-cash')">
+                    <img src="img/c41bc70498dd9acabdbf0ec89d613bbd.jpg" alt="">
+                    <div class="proj-crd-info">
+                        <span class="proj-crd-cat">Event Promo · Flyer</span>
+                        <span class="proj-crd-title">Click to Cash</span>
+                    </div>
+                </div>
+                <div class="proj-crd" data-index="1" onclick="openModal('bon-classic')">
+                    <img src="img/download.jfif" alt="">
+                    <div class="proj-crd-info">
+                        <span class="proj-crd-cat">Branding · Social Media</span>
+                        <span class="proj-crd-title">Bon Classic Design</span>
+                    </div>
+                </div>
+                <div class="proj-crd" data-index="2" onclick="openModal('design-jobs')">
+                    <img src="img/Charity Flyer Bundle Templates.jfif" alt="">
+                    <div class="proj-crd-info">
+                        <span class="proj-crd-cat">Branding · Self Promo</span>
+                        <span class="proj-crd-title">Stan Creation Campaign</span>
+                    </div>
+                </div>
+                <div class="proj-crd" data-index="3" onclick="openModal('typography-brand')">
+                    <img src="img/Interior decoration Brand.jfif" alt="">
+                    <div class="proj-crd-info">
+                        <span class="proj-crd-cat">Poster · Typography</span>
+                        <span class="proj-crd-title">Editorial Typography</span>
+                    </div>
+                </div>
+                <div class="proj-crd" data-index="4" onclick="openModal('event-visual')">
+                    <img src="img/New Month Poster May.jfif" alt="">
+                    <div class="proj-crd-info">
+                        <span class="proj-crd-cat">Event · Visual Identity</span>
+                        <span class="proj-crd-title">Corporate Event Design</span>
+                    </div>
+                </div>
+                <div class="proj-crd" data-index="5" onclick="openModal('logo-suite')">
+                    <img src="img/Shoe\ sales\ poster.jfif" alt="">
+                    <div class="proj-crd-info">
+                        <span class="proj-crd-cat">Brand Identity · Logo</span>
+                        <span class="proj-crd-title">Premium Brand Suite</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="proj-controls">
+                <button class="proj-btn proj-btn-prev" id="projPrev" aria-label="Previous project">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"
+                        viewBox="0 0 24 24">
+                        <path d="M15 18l-6-6 6-6" />
+                    </svg>
+                </button>
+                <div class="proj-counter">
+                    <span id="projCurrent">1</span>
+                    <span class="proj-counter-sep">—</span>
+                    <span id="projTotal">6</span>
+                </div>
+                <button class="proj-btn proj-btn-next" id="projNext" aria-label="Next project">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"
+                        viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Pip dots -->
+            <div class="proj-pips" id="projPips"></div>
+        </div>
+
     </section>
 
     <!-- ABOUT -->
@@ -354,7 +427,7 @@
             <li><a href="#connect">Twitter</a></li>
             <li><a href="#connect">Behance</a></li>
         </ul>
-        <div class="footer-copy">© 2025 Stan Creation. All rights reserved.</div>
+        <div class="footer-copy">© 2026 Stan Creation. All rights reserved.</div>
     </footer>
 
     <!-- PROJECT MODAL — IMAGE SLIDER -->
@@ -465,11 +538,11 @@
         /* ── PROJECT DATA (images only, no text) ── */
         const allImages = [
             'img/c41bc70498dd9acabdbf0ec89d613bbd.jpg',
-            'img/jobs two.jpg',
-            'img/Charity Flyer Bundle Templates.jfif',
             'img/download.jfif',
+            'img/Charity Flyer Bundle Templates.jfif',
+            'img/jobs two.jpg',
             'img/New Month Poster May.jfif',
-            'img/Shoe sales poster.jfif'
+            'img/Shoe sales poster.jfif',
         ];
 
         const projectImageMap = {
@@ -585,26 +658,118 @@
         mobileScrim.addEventListener('click', closeMobileMenu);
         document.querySelectorAll('.mobile-nav-links a').forEach(a => a.addEventListener('click', closeMobileMenu));
 
-        /* ── HERO BACKGROUND SLIDER ── */
-        let heroSlide = 0;
-        const heroSlides = document.querySelectorAll('.hero-bg-slide');
-        const heroDots = document.querySelectorAll('.hero-dot');
-        function nextHeroSlide() {
-            heroSlides[heroSlide].classList.remove('active');
-            heroDots[heroSlide].classList.remove('active');
-            heroSlide = (heroSlide + 1) % heroSlides.length;
-            heroSlides[heroSlide].classList.add('active');
-            heroDots[heroSlide].classList.add('active');
-        }
-        setInterval(nextHeroSlide, 5000);
-        heroDots.forEach((dot, i) => dot.addEventListener('click', () => {
-            heroSlides[heroSlide].classList.remove('active');
-            heroDots[heroSlide].classList.remove('active');
-            heroSlide = i;
-            heroSlides[i].classList.add('active');
-            heroDots[i].classList.add('active');
-        }));
+        /* ── HERO BACKGROUND SLIDER — glass morph transition ── */
+        (function () {
+            const slides = document.querySelectorAll('.hero-bg-slide');
+            const dots = document.querySelectorAll('.hero-dot');
+            let cur = 0, animating = false;
+
+            function goTo(next) {
+                if (animating || next === cur) return;
+                animating = true;
+
+                const leaving = slides[cur];
+                const entering = slides[next];
+
+                /* Stage the incoming slide behind */
+                entering.classList.add('pre-enter');
+                /* Small rAF gap so browser registers the class before transition */
+                requestAnimationFrame(() => requestAnimationFrame(() => {
+                    leaving.classList.add('leaving');
+                    entering.classList.remove('pre-enter');
+                    entering.classList.add('active');
+
+                    dots[cur].classList.remove('active');
+                    dots[next].classList.add('active');
+
+                    const DURATION = 1400;
+                    setTimeout(() => {
+                        leaving.classList.remove('active', 'leaving');
+                        cur = next;
+                        animating = false;
+                    }, DURATION);
+                }));
+            }
+
+            function advance() { goTo((cur + 1) % slides.length); }
+            let timer = setInterval(advance, 5500);
+
+            dots.forEach((dot, i) => dot.addEventListener('click', () => {
+                clearInterval(timer);
+                goTo(i);
+                timer = setInterval(advance, 5500);
+            }));
+        })();
+
+        /* ── MOBILE PROJECT CAROUSEL — stacked cards ── */
+        (function () {
+            const TOTAL = 6;
+            let active = 0;
+
+            const cards = Array.from(document.querySelectorAll('.proj-crd'));
+            const pips = document.getElementById('projPips');
+            const curEl = document.getElementById('projCurrent');
+            const totEl = document.getElementById('projTotal');
+            if (!pips) return; // not in DOM when carousel hidden on desktop
+
+            totEl.textContent = TOTAL;
+
+            /* Build pip dots */
+            cards.forEach((_, i) => {
+                const p = document.createElement('span');
+                p.className = 'proj-pip' + (i === 0 ? ' active' : '');
+                p.addEventListener('click', () => navigate(i));
+                pips.appendChild(p);
+            });
+
+            function applyStack() {
+                cards.forEach((card, i) => {
+                    card.removeAttribute('style');
+                    card.className = 'proj-crd';
+
+                    const offset = i - active;
+
+                    if (offset === 0) {
+                        card.classList.add('crd-top');
+                    } else if (offset === 1) {
+                        card.classList.add('crd-mid');
+                    } else if (offset === 2) {
+                        card.classList.add('crd-back');
+                    } else if (offset === -1) {
+                        card.classList.add('crd-exit');
+                    } else {
+                        card.classList.add('crd-hidden');
+                    }
+                });
+
+                /* Update pips + counter */
+                document.querySelectorAll('.proj-pip').forEach((p, i) => {
+                    p.classList.toggle('active', i === active);
+                });
+                curEl.textContent = active + 1;
+            }
+
+            function navigate(to) {
+                active = (to + TOTAL) % TOTAL;
+                applyStack();
+            }
+
+            document.getElementById('projNext').addEventListener('click', () => navigate(active + 1));
+            document.getElementById('projPrev').addEventListener('click', () => navigate(active - 1));
+
+            /* Swipe support */
+            let tx = 0;
+            const stack = document.getElementById('projStack');
+            stack.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+            stack.addEventListener('touchend', e => {
+                const diff = tx - e.changedTouches[0].clientX;
+                if (Math.abs(diff) > 45) navigate(active + (diff > 0 ? 1 : -1));
+            });
+
+            applyStack();
+        })();
     </script>
 </body>
+<!-- Created and designed by Chukwuma Chimaroke - TheSeventhSage -->
 
 </html>
